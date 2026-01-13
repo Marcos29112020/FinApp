@@ -15,13 +15,13 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20  # Ou '22'
+          node-version: 20
 
-      - name: Remove existing node_modules  # Novo passo para limpar pastas committed
+      - name: Remove existing node_modules
         run: rm -rf node_modules dist
 
       - name: Install dependencies
-        run: npm ci  # Use 'npm ci' para CI, mais consistente que 'npm install'
+        run: npm ci
 
       - name: Build project
         run: npm run build
@@ -31,3 +31,5 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
+          publish_branch: gh-pages  # Confirma o branch
+          force_orphan: true  # Força um branch limpo, se necessário
