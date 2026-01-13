@@ -4,7 +4,8 @@ node_modules/
 # Build
 dist/
 
-# Logs
+# Cache do gh-pages e outros
+.cache/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
