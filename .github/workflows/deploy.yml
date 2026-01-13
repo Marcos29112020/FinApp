@@ -15,13 +15,13 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20  # Ou '22'
+
+      - name: Remove existing node_modules  # Novo passo para limpar pastas committed
+        run: rm -rf node_modules dist
 
       - name: Install dependencies
-        run: npm install
-
-      - name: Fix permissions
-        run: chmod +x ./node_modules/.bin/vite
+        run: npm ci  # Use 'npm ci' para CI, mais consistente que 'npm install'
 
       - name: Build project
         run: npm run build
